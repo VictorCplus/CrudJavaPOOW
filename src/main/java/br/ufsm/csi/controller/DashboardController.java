@@ -1,5 +1,8 @@
 package br.ufsm.csi.controller;
 
+import br.ufsm.csi.model.Usuario;
+import br.ufsm.csi.service.UsuarioService;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -44,15 +47,26 @@ public class DashboardController extends HttpServlet {
                 req.getSession().invalidate();
                 url = "/";
 
+            }else if(opcao.equals("usuario")){
+
+                url += "usuarios.jsp";
+
             }else{
                 url += "dashboard.jsp";
             }
+
             RequestDispatcher rd = req.getRequestDispatcher(url);
             rd.forward(req, resp);
+
         }else{
             url = "/";
             if(opcao.equals("cadastro")){
                 url = "WEB-INF/cadastro.jsp";
+            }else if(opcao.equals("voltar")){
+                url += "WEB-INF/login.jsp";
+            }
+            else if(opcao.equals("login")){
+                url = "WEB-INF/login.jsp";
             }
             RequestDispatcher rd = req.getRequestDispatcher(url);
             rd.forward(req, resp);

@@ -24,10 +24,15 @@
         <li><a href="controlador?opcao=cliente">Cadastrar Cliente</a></li>
         <br>
         <li><a href="controlador?opcao=produto">Cadastrar Produto</a></li>
+        <br>
+
+        <c:if test="${usuario_logado.permissao} == 1">
+            <li><a href="controlador?opcao=usuario">Usuarios</a></li>
+        </c:if>
+
     </ul>
 
 <a href="controlador?opcao=logout"> <input type="button" value="SAIR"/></a>
-
 
 </body>
 </html>
