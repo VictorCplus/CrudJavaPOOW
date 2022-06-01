@@ -40,7 +40,9 @@
             </span>
         </div>
     </div>
-    <input type="button" value="Cadastrar" name="cadastro">
+    <input type="submit" value="CADASTRAR" name="cadastro">
+
+    <a href="controlador?opcao=voltar"> <input type="button" value="VOLTAR"/></a>
 </form>
 
 <c:if test="${not empty erro}">

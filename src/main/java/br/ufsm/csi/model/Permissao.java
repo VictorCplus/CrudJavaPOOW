@@ -10,6 +10,7 @@ id_permissao serial,
 
 insert into permissao (nome_permissao) values ('ADMIN');
 select * from permissao;
+insert into permissao (nome_permissao) values('USER');
 
 */
 

@@ -35,6 +35,7 @@ public class UsuarioController extends HttpServlet {
                 url += "cadastro.jsp";
             }
         }catch (Exception e){
+
             e.printStackTrace();
         }
         rd = req.getRequestDispatcher(url);

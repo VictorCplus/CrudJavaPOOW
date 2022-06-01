@@ -16,7 +16,7 @@ public class UsuarioDao {
         Usuario usuario = null;
     try (Connection connection = new ConectaBDPostgress().getConexao()){
 
-        this.sql = "SELECT id_usuario, nome, email, senha FROM usuario WHERE email = ? AND senha = ?;";
+        this.sql = "SELECT id_usuario, nome, email, senha, id_permissao FROM usuario WHERE email = ? AND senha = ?;";
 
         preparedStatement = connection.prepareStatement(this.sql);
         preparedStatement.setString(1, email);
@@ -29,6 +29,7 @@ public class UsuarioDao {
             usuario.setName(resultSet.getString("nome").toLowerCase());
             usuario.setEmail(resultSet.getString("email"));
             usuario.setSenha(resultSet.getString("senha"));
+            usuario.setPermissao(resultSet.getInt("id_permissao"));
         }
     }catch (SQLException e){
         e.printStackTrace();
@@ -45,10 +46,11 @@ public class UsuarioDao {
 
         return usuario;
     }
+
     public boolean InsertUsuario(String nome, String email, String senha){
 
         try (Connection connection = new ConectaBDPostgress().getConexao()){
-            this.sql = "INSERT INTO usuario (nome, email, senha, data_cadastro, ativo, id_permissao) VALUES (?, ?, ?, CURRENT_DATA, true, 1);";
+            this.sql = "INSERT INTO usuario (nome, email, senha, data_cadastro, ativo, id_permissao) VALUES (?, ?, ?, current_date, true, 2);";
             preparedStatement = connection.prepareStatement(this.sql);
             preparedStatement.setString(1, nome);
             preparedStatement.setString(2, email);

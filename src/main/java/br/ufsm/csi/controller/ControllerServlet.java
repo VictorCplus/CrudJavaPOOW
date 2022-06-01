@@ -20,7 +20,7 @@ public class ControllerServlet extends HttpServlet {
                 "do usuário ter acesso a login.jsp");
     */
         RequestDispatcher r;
-        r = req.getRequestDispatcher("WEB-INF/login.jsp");
+        r = req.getRequestDispatcher("WEB-INF/Inicio.jsp");
         r.forward(req, resp);
     }
 }

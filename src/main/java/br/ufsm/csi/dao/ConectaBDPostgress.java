@@ -11,9 +11,9 @@ public class ConectaBDPostgress {
     private static final String USER = "postgres";
     private static final String SENHA = "1234";
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         new ConectaBDPostgress().getConexao();
-    }
+    }*/
 
     public Connection getConexao() {
         Connection con = null;
